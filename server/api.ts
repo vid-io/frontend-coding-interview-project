@@ -1,7 +1,10 @@
 import express from "express"
 import cors from "cors"
+import dotenv from "dotenv"
 import type { ApiResponse, Video } from "@/types/api"
 import { mockVideos } from "./mock-videos"
+
+dotenv.config({ path: ".env.local" })
 
 const app = express()
 const PORT = 3001
@@ -39,7 +42,6 @@ app.get("/api/videos/:id", (req, res) => {
   }
   res.json(response)
 })
-
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`)
